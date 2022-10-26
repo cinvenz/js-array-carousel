@@ -43,6 +43,15 @@ eleBtnRight.addEventListener('click', function () {
 	if (activeIndex === listEleImg.length - 1) {
 		eleBtnRight.classList.add('hidden');
 	}
+
+    // SCORRERE CAROSELLO VERSO IL BASSO
+    listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
+    
+	
+	activeIndexCaro++;
+
+	
+	listCaroselloImg[activeIndexCaro-1].classList.remove('opacity-chiaro');
 });
 
 eleBtnLeft.addEventListener('click', function () {
@@ -59,6 +68,14 @@ eleBtnLeft.addEventListener('click', function () {
 	if (activeIndex === 0) {
 		eleBtnLeft.classList.add('hidden');
 	}
+
+    listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
+
+	
+	activeIndexCaro--;
+
+	
+	listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
 });
 
 
@@ -90,21 +107,23 @@ const listCaroselloImg = document.querySelectorAll('.slider-carosello');
 let activeIndexCaro = 0;
 listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
 eleBtnBottom.addEventListener('click', function () {
-	// togliere la classe active dall'elemento attivo corrente
+	
     listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
     
-	// incrementare l'active index
+	
 	activeIndexCaro++;
 
-	// aggiungere la classe active all'elemento successivo
+	
 	listCaroselloImg[activeIndexCaro-1].classList.remove('opacity-chiaro');
 
+
+    // SCORRERE IMMAGINI VERSO DESTRA
     listEleImg[activeIndex].classList.remove('active');
 
-	// incrementare l'active index
+	
 	activeIndex++;
 
-	// aggiungere la classe active all'elemento successivo
+	
 	listEleImg[activeIndex].classList.add('active');
 
 	eleBtnLeft.classList.remove('hidden');
@@ -116,22 +135,22 @@ eleBtnBottom.addEventListener('click', function () {
 });
 
 eleBtnTop.addEventListener('click', function () {
-	// togliere la classe active dall'elemento attivo corrente
+	
 	listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
 
-	// incrementare l'active index
+	
 	activeIndexCaro--;
 
-	// aggiungere la classe active all'elemento successivo
+	
 	listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
 
-
+    // SCORRERE IMMAGINI VERSO SINISTRA
     listEleImg[activeIndex].classList.remove('active');
 
-	// incrementare l'active index
+	
 	activeIndex--;
 
-	// aggiungere la classe active all'elemento successivo
+	
 	listEleImg[activeIndex].classList.add('active');
 
 	eleBtnRight.classList.remove('hidden');

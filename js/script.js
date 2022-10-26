@@ -60,3 +60,47 @@ eleBtnLeft.addEventListener('click', function () {
 		eleBtnLeft.classList.add('hidden');
 	}
 });
+
+
+
+// --------------------- Carosello ------------------------
+
+const arrImagesCaro = [
+	'img/01.jpg',
+	'img/02.jpg',
+	'img/03.jpg',
+	'img/04.jpg',
+	'img/05.jpg',
+];
+
+const imgCarosello = document.querySelector('.img-carosello');
+const eleBtntop = document.querySelector('.btn-top');
+const eleBtnbottom = document.querySelector('.btn-bottom');
+
+for (let c = 0; c < arrImagesCaro.length; c++) {
+	const eleImgCaro = document.createElement('img');
+	eleImgCaro.src = arrImagesCaro[c];
+	eleImgCaro.classList.add('slider-carosello');
+
+	imgCarosello.append(eleImgCaro);
+}
+
+// const listCaroselloImg = document.querySelectorAll('.slider-carosello'); 
+
+// let activeIndexCaro = 0;
+
+// eleBtnRight.addEventListener('click', function () {
+// 	// togliere la classe active dall'elemento attivo corrente
+// 	listEleImg[activeIndex].classList.remove('active');
+
+// 	// incrementare l'active index
+// 	activeIndex++;
+
+// 	// aggiungere la classe active all'elemento successivo
+// 	listEleImg[activeIndex].classList.add('active');
+
+// 	eleBtnLeft.classList.remove('hidden');
+// 	if (activeIndex === listEleImg.length - 1) {
+// 		eleBtnRight.classList.add('hidden');
+// 	}
+// });

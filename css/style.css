@@ -64,13 +64,45 @@
 }
 
 .img-carosello {
-    border: 1px solid black;
+    
     width: 200px;
     height: 80px;
+}
+
+.carosello {
+    position: relative;
+    height: 400px;
 }
 
 .slider-carosello {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    display: block;
+}
+
+.controls-carosello {
+    display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	inset: 0;
+}
+
+
+.btn-top, .btn-bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: .5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 100%;
+	background-color: white;
+}
+
+.btn-top:hover, .btn-bottom:hover {
+	background-color: lightblue;
+	cursor: pointer;
 }

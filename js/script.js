@@ -74,8 +74,8 @@ const arrImagesCaro = [
 ];
 
 const imgCarosello = document.querySelector('.img-carosello');
-const eleBtntop = document.querySelector('.btn-top');
-const eleBtnbottom = document.querySelector('.btn-bottom');
+const eleBtnTop = document.querySelector('.btn-top');
+const eleBtnBottom = document.querySelector('.btn-bottom');
 
 for (let c = 0; c < arrImagesCaro.length; c++) {
 	const eleImgCaro = document.createElement('img');
@@ -85,22 +85,24 @@ for (let c = 0; c < arrImagesCaro.length; c++) {
 	imgCarosello.append(eleImgCaro);
 }
 
-// const listCaroselloImg = document.querySelectorAll('.slider-carosello'); 
+const listCaroselloImg = document.querySelectorAll('.slider-carosello'); 
 
-// let activeIndexCaro = 0;
+let activeIndexCaro = 0;
+listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
+eleBtnBottom.addEventListener('click', function () {
+	// togliere la classe active dall'elemento attivo corrente
+    listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
+    
+	
 
-// eleBtnRight.addEventListener('click', function () {
-// 	// togliere la classe active dall'elemento attivo corrente
-// 	listEleImg[activeIndex].classList.remove('active');
+	// incrementare l'active index
+	activeIndexCaro++;
 
-// 	// incrementare l'active index
-// 	activeIndex++;
+	// aggiungere la classe active all'elemento successivo
+	listCaroselloImg[activeIndexCaro-1].classList.remove('opacity-chiaro');
 
-// 	// aggiungere la classe active all'elemento successivo
-// 	listEleImg[activeIndex].classList.add('active');
-
-// 	eleBtnLeft.classList.remove('hidden');
-// 	if (activeIndex === listEleImg.length - 1) {
-// 		eleBtnRight.classList.add('hidden');
-// 	}
-// });
+	eleBtnTop.classList.remove('opacity-scuro');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		eleBtnBottom.classList.ads('opacity-scuro');
+	}
+});

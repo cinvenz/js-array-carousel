@@ -93,16 +93,49 @@ eleBtnBottom.addEventListener('click', function () {
 	// togliere la classe active dall'elemento attivo corrente
     listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
     
-	
-
 	// incrementare l'active index
 	activeIndexCaro++;
 
 	// aggiungere la classe active all'elemento successivo
 	listCaroselloImg[activeIndexCaro-1].classList.remove('opacity-chiaro');
 
-	eleBtnTop.classList.remove('opacity-scuro');
-	if (activeIndexCaro === listCaroselloImg.length - 1) {
-		eleBtnBottom.classList.ads('opacity-scuro');
+    listEleImg[activeIndex].classList.remove('active');
+
+	// incrementare l'active index
+	activeIndex++;
+
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
+
+	eleBtnLeft.classList.remove('hidden');
+	if (activeIndex === listEleImg.length - 1) {
+		eleBtnRight.classList.add('hidden');
+	}
+
+	
+});
+
+eleBtnTop.addEventListener('click', function () {
+	// togliere la classe active dall'elemento attivo corrente
+	listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
+
+	// incrementare l'active index
+	activeIndexCaro--;
+
+	// aggiungere la classe active all'elemento successivo
+	listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
+
+
+    listEleImg[activeIndex].classList.remove('active');
+
+	// incrementare l'active index
+	activeIndex--;
+
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
+
+	eleBtnRight.classList.remove('hidden');
+	if (activeIndex === 0) {
+		eleBtnLeft.classList.add('hidden');
 	}
 });

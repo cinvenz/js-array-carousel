@@ -28,7 +28,8 @@ const listEleImg = document.querySelectorAll('.slider-img'); // non e' un array 
 
 let activeIndex = 0;
 
-// aggiungere gli event listeners ai due bottoni
+// BOTTONE DESTRO
+
 eleBtnRight.addEventListener('click', function () {
 	// togliere la classe active dall'elemento attivo corrente
 	listEleImg[activeIndex].classList.remove('active');
@@ -49,7 +50,7 @@ eleBtnRight.addEventListener('click', function () {
 
 	eleBtnTop.classList.remove('hidden');
 	if (activeIndexCaro === listCaroselloImg.length - 1) {
-		eleBtnBottom.classList.add('hidden');
+		// eleBtnBottom.classList.add('hidden');
 		
 	}
 	if (activeIndexCaro === 0) {
@@ -67,6 +68,8 @@ eleBtnRight.addEventListener('click', function () {
 
 
 });
+
+// BOTTONE SINISTRO
 
 eleBtnLeft.addEventListener('click', function () {
 	// togliere la classe active dall'elemento attivo corrente
@@ -98,7 +101,7 @@ eleBtnLeft.addEventListener('click', function () {
 
 	eleBtnTop.classList.remove('hidden');
 	if (activeIndexCaro === listCaroselloImg.length - 1) {
-		eleBtnBottom.classList.add('hidden');
+		// eleBtnBottom.classList.add('hidden');
 		
 	}
 	if (activeIndexCaro === 0) {
@@ -136,9 +139,40 @@ const listCaroselloImg = document.querySelectorAll('.slider-carosello');
 
 let activeIndexCaro = 0;
 listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
+
+
+// BOTTONE SOTTO
 eleBtnBottom.addEventListener('click', function () {
+
+	listEleImg[activeIndex].classList.remove('active');
+
+	activeIndex++;
+	if (activeIndex === listEleImg.length ) {
+		activeIndex = 0;
+	} 
 	
-    listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
+
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
+
+	eleBtnLeft.classList.remove('hidden');
+	// if (activeIndex === listEleImg.length - 1) {
+	// 	eleBtnRight.classList.add('hidden');
+	// }
+
+	eleBtnTop.classList.remove('hidden');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		// eleBtnBottom.classList.add('hidden');
+		
+	}
+	if (activeIndexCaro === 0) {
+		// eleBtnTop.classList.add('hidden');
+	}
+
+    // SCORRERE CAROSELLO VERSO IL BASSO
+	
+
+	listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
     
 	
 	activeIndexCaro++;
@@ -146,33 +180,32 @@ eleBtnBottom.addEventListener('click', function () {
 	
 	listCaroselloImg[activeIndexCaro-1].classList.remove('opacity-chiaro');
 
-
-    // SCORRERE IMMAGINI VERSO DESTRA
-    listEleImg[activeIndex].classList.remove('active');
-
-	
-	activeIndex++;
-
-	
-	listEleImg[activeIndex].classList.add('active');
-
-	eleBtnLeft.classList.remove('hidden');
-	if (activeIndex === listEleImg.length - 1) {
-		eleBtnRight.classList.add('hidden');
-	}
-
-	
-	eleBtnTop.classList.remove('hidden');
-	if (activeIndexCaro === listCaroselloImg.length - 1) {
-		eleBtnBottom.classList.add('hidden');
-	}
-
 	
 });
 
+
+// BOTTONE SOPRA
 eleBtnTop.addEventListener('click', function () {
+
+	listEleImg[activeIndex].classList.remove('active');
+
+	// incrementare l'active index
+	if (activeIndex === 0) {
+		activeIndex = listEleImg.length;
+	}
+	activeIndex--;
+
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
+
+	eleBtnRight.classList.remove('hidden');
+	// if (activeIndex === 0) {
+	// 	eleBtnLeft.classList.add('hidden');
+	// }
+
 	
-	listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
+
+    listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
 
 	
 	activeIndexCaro--;
@@ -180,26 +213,41 @@ eleBtnTop.addEventListener('click', function () {
 	
 	listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
 
-    // SCORRERE IMMAGINI VERSO SINISTRA
-    listEleImg[activeIndex].classList.remove('active');
-
-	
-	activeIndex--;
-
-	
-	listEleImg[activeIndex].classList.add('active');
-
-	eleBtnRight.classList.remove('hidden');
-	if (activeIndex === 0) {
-		eleBtnLeft.classList.add('hidden');
-	}
-
-	eleBtnBottom.classList.remove('hidden');
+	eleBtnTop.classList.remove('hidden');
 	if (activeIndexCaro === listCaroselloImg.length - 1) {
-		eleBtnTop.classList.add('hidden');
+		// eleBtnBottom.classList.add('hidden');
 		
 	}
 	if (activeIndexCaro === 0) {
 		eleBtnTop.classList.add('hidden');
 	}
+
+	eleBtnTop.classList.remove('hidden');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		// eleBtnBottom.classList.add('hidden');
+		
+	}
+	if (activeIndexCaro === 0) {
+		// eleBtnTop.classList.add('hidden');
+	}
+
+	
+	listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
+
+
+
+	
+	
+	if (activeIndexCaro === 0) {
+		activeIndexCaro = listCaroselloImg.length;
+	}
+	activeIndexCaro--;
+
+	
+
+	
+	listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
+
+    // SCORRERE IMMAGINI VERSO SINISTRA
+
 });

@@ -132,6 +132,12 @@ eleBtnBottom.addEventListener('click', function () {
 	}
 
 	
+	eleBtnTop.classList.remove('hidden');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		eleBtnBottom.classList.add('hidden');
+	}
+
+	
 });
 
 eleBtnTop.addEventListener('click', function () {
@@ -156,5 +162,14 @@ eleBtnTop.addEventListener('click', function () {
 	eleBtnRight.classList.remove('hidden');
 	if (activeIndex === 0) {
 		eleBtnLeft.classList.add('hidden');
+	}
+
+	eleBtnBottom.classList.remove('hidden');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		eleBtnTop.classList.add('hidden');
+		
+	}
+	if (activeIndexCaro === 0) {
+		eleBtnTop.classList.add('hidden');
 	}
 });

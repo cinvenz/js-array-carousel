@@ -44,6 +44,15 @@ eleBtnRight.addEventListener('click', function () {
 		eleBtnRight.classList.add('hidden');
 	}
 
+	eleBtnTop.classList.remove('hidden');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		eleBtnBottom.classList.add('hidden');
+		
+	}
+	if (activeIndexCaro === 0) {
+		eleBtnTop.classList.add('hidden');
+	}
+
     // SCORRERE CAROSELLO VERSO IL BASSO
     listCaroselloImg[activeIndexCaro+1].classList.add('opacity-chiaro');
     
@@ -52,6 +61,8 @@ eleBtnRight.addEventListener('click', function () {
 
 	
 	listCaroselloImg[activeIndexCaro-1].classList.remove('opacity-chiaro');
+
+
 });
 
 eleBtnLeft.addEventListener('click', function () {
@@ -76,6 +87,15 @@ eleBtnLeft.addEventListener('click', function () {
 
 	
 	listCaroselloImg[activeIndexCaro].classList.add('opacity-chiaro');
+
+	eleBtnTop.classList.remove('hidden');
+	if (activeIndexCaro === listCaroselloImg.length - 1) {
+		eleBtnBottom.classList.add('hidden');
+		
+	}
+	if (activeIndexCaro === 0) {
+		eleBtnTop.classList.add('hidden');
+	}
 });
 
 

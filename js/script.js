@@ -33,16 +33,19 @@ eleBtnRight.addEventListener('click', function () {
 	// togliere la classe active dall'elemento attivo corrente
 	listEleImg[activeIndex].classList.remove('active');
 
-	// incrementare l'active index
 	activeIndex++;
+	if (activeIndex === listEleImg.length ) {
+		activeIndex = 0;
+	} 
+	
 
 	// aggiungere la classe active all'elemento successivo
 	listEleImg[activeIndex].classList.add('active');
 
 	eleBtnLeft.classList.remove('hidden');
-	if (activeIndex === listEleImg.length - 1) {
-		eleBtnRight.classList.add('hidden');
-	}
+	// if (activeIndex === listEleImg.length - 1) {
+	// 	eleBtnRight.classList.add('hidden');
+	// }
 
 	eleBtnTop.classList.remove('hidden');
 	if (activeIndexCaro === listCaroselloImg.length - 1) {
@@ -70,15 +73,20 @@ eleBtnLeft.addEventListener('click', function () {
 	listEleImg[activeIndex].classList.remove('active');
 
 	// incrementare l'active index
+	if (activeIndex === 0) {
+		activeIndex = listEleImg.length;
+	}
 	activeIndex--;
 
 	// aggiungere la classe active all'elemento successivo
 	listEleImg[activeIndex].classList.add('active');
 
 	eleBtnRight.classList.remove('hidden');
-	if (activeIndex === 0) {
-		eleBtnLeft.classList.add('hidden');
-	}
+	// if (activeIndex === 0) {
+	// 	eleBtnLeft.classList.add('hidden');
+	// }
+
+	
 
     listCaroselloImg[activeIndexCaro].classList.remove('opacity-chiaro');
 
@@ -96,6 +104,8 @@ eleBtnLeft.addEventListener('click', function () {
 	if (activeIndexCaro === 0) {
 		eleBtnTop.classList.add('hidden');
 	}
+
+	
 });
 
 
